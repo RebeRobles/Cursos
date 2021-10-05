@@ -1,0 +1,36 @@
+{% extends "curso_app/base.html"%}
+{% load static %}
+{% block title %}{% endblock %}
+
+
+{% block content %}
+{% include "curso_app/navbar.html" %} 
+<div class="container">
+    <div class="card">
+        <div class="card-title">
+            <h1 class="text-info text-center">Are you sure you want to delete the following course?</h1>
+        </div>
+        <div class="card-body">
+            <div class="mb-3 row">
+                <label for="name" class="col-sm-3 col-form-label fw-bold">Name:</label>
+                <div class="col-sm 9">
+                   <p>{{course.name}}</p>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="description" class="col-sm-3 col-form-label fw-bold">Description:</label>
+                <div class="col-sm 9">
+                    <p>{{course.descrip_course.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center bg-transparent border-0">
+            <div class="d-grid gap-2 d-md-block">
+                <a class= "btn btn-success " href="{% url 'create' %}">No</a>
+                <a class="btn btn-outline-danger " href="/delete/{{course.id}}">Yes! I want to delete this</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
